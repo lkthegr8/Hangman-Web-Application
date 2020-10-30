@@ -5,8 +5,8 @@ const game1=new Hangman("hello",4)
 
 
 puzzleElement.textContent=game1.getPuzzle()
-guessElement.textContent=`remaining guess = ${game1.remainingGuesses}`
-console.log(game1.status)
+guessElement.textContent=game1.getStatusMessage()
+
 
 // adding event listener to the window to take input from user
 window.addEventListener("keypress",function(e){
@@ -14,9 +14,7 @@ window.addEventListener("keypress",function(e){
     game1.makeGuess(guess)
 
     puzzleElement.textContent=game1.getPuzzle()
-    guessElement.textContent=`remaining guess = ${game1.remainingGuesses}`
+    // getting the status and printing it on the window
+    guessElement.textContent=game1.getStatusMessage()
 
-    // console.log(game2.getPuzzle())
-    // console.log(`remaining guess = ${game2.remainingGuesses}`)
-    console.log(game1.status)
 })
