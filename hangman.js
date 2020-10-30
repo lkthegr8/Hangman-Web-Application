@@ -6,7 +6,7 @@ const game1=new Hangman("hello",4)
 
 puzzleElement.textContent=game1.getPuzzle()
 guessElement.textContent=`remaining guess = ${game1.remainingGuesses}`
-
+console.log(game1.status)
 
 // adding event listener to the window to take input from user
 window.addEventListener("keypress",function(e){
@@ -18,5 +18,5 @@ window.addEventListener("keypress",function(e){
 
     // console.log(game2.getPuzzle())
     // console.log(`remaining guess = ${game2.remainingGuesses}`)
-
+    console.log(game1.status)
 })

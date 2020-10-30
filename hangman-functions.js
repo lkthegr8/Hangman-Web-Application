@@ -1,9 +1,31 @@
 // all the functions written previously in hangman.js
 
+// this is a object
 const Hangman=function (word, remainingGuesses) {
     this.word=word.toLowerCase().split("")
     this.remainingGuesses=remainingGuesses
     this.gussedLetters=[]
+    this.status="Palying"
+}
+
+Hangman.prototype.calculateStatus=function(){
+    let finished=true
+
+    this.word.forEach((letter)=>{
+        if (this.gussedLetters.includes(letter)) {
+            // iterate through the word if all the letters have been guessed
+        } else {
+            finished=false
+        }
+    })
+
+    if (this.remainingGuesses===0) {
+        this.status="Failed"
+    }else if(finished){
+        this.status="Finished"
+    }else{
+        this.status="Palying"
+    }
 }
 
 Hangman.prototype.getPuzzle=function(){
@@ -32,4 +54,5 @@ Hangman.prototype.makeGuess=function(guess){
     if(isUnique && isBadGuess){
         this.remainingGuesses--
     }
+    this.calculateStatus()
 }
