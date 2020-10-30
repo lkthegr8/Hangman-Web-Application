@@ -1,7 +1,7 @@
 const puzzleElement=document.querySelector("#puzzle")
 const guessElement=document.querySelector("#guesses")
 
-const game1=new Hangman("hello",4)
+const game1=new Hangman("hi cat",4)
 
 
 puzzleElement.textContent=game1.getPuzzle()
