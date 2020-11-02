@@ -25,13 +25,13 @@ const getCountry=(countryCode) => {
 
 
 const getLocation=(countryCode) => {
-    return fetch("http://ipinfo.io/json?token=9ace42026011f5t",{}).then((response)=>{
+    return fetch("http://ipinfo.io/json?token=9ace42026011f5",{}).then((response)=>{
         if (response.status===200) {
             return response.json()
         }else{
             throw new Error("unable to fetch the location")
         }
     }).then((data)=>{
-        return `you live in ${data.city},${data.region},${data.country}`
+        return data
     })
 }

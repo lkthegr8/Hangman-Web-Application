@@ -55,8 +55,14 @@ getCountry("US").then((country)=>{
 
 
 // code for challenge to get location based on ip address
-getLocation().then((location)=>{
-    console.log(location)
+// and integrating the country api
+getLocation().then((data)=>{
+    console.log(`you live in ${data.city},${data.region},${data.country}`)
+    return data.country
+}).then((country)=>{
+    getCountry(country).then((country)=>{
+        console.log(`The name of the country: ${country.name}`)
+    })
 }).catch((err)=>{
     console.log(err)
 })
