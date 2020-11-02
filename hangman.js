@@ -22,23 +22,18 @@ window.addEventListener("keypress",(e) => {
 })
 
 
-getPuzzle(4,(error,puzzle)=>{
-    if(error){
-        console.log(`error: ${error}`)
-    }else{
-        console.log(puzzle)
-    }
-    
+getPuzzle(1).then((puzzle)=>{
+    console.log(puzzle)
+},(err)=>{
+    console.log(`error: ${err}`)
 })
 
 
 
 
 // the challenge for callback abstraction
-getCountry("US",(error,country)=>{
-    if (error) {
-        console.log(error)
-    } else {
-        console.log(`country name: ${country.name}`)
-    }
+getCountry("US").then((country)=>{
+    console.log(`The name of the country: ${country}`)
+},(err)=>{
+    console.log(`error: ${err}`)
 })
