@@ -1,5 +1,3 @@
-
-
 const puzzleElement=document.querySelector("#puzzle")
 const guessElement=document.querySelector("#guesses")
 
@@ -33,7 +31,23 @@ getPuzzle(1).then((puzzle)=>{
 
 // the challenge for callback abstraction
 getCountry("US").then((country)=>{
-    console.log(`The name of the country: ${country}`)
-},(err)=>{
-    console.log(`error: ${err}`)
+    console.log(`The name of the country: ${country.name}`)
+}).catch((err)=>{
+    console.log(err)
 })
+
+
+// dummy code for fetch api
+
+// fetch("http://puzzle.mead.io/puzzle",{}).then((response)=>{
+//     if (response.status===200) {
+//         // the below statment returns a promise so to handle it we return it and then use 'then'
+//         return response.json()
+//     }else{
+//         throw new Error("unable to fetch puzzle")
+//     }
+// }).then((data)=>{
+//     console.log(data.puzzle)
+// }).catch((error)=>{
+//     console.log(error)
+// })
