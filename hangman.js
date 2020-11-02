@@ -51,3 +51,12 @@ getCountry("US").then((country)=>{
 // }).catch((error)=>{
 //     console.log(error)
 // })
+
+
+
+// code for challenge to get location based on ip address
+getLocation().then((location)=>{
+    console.log(location)
+}).catch((err)=>{
+    console.log(err)
+})
