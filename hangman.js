@@ -1,11 +1,11 @@
-const puzzleElement=document.querySelector("#puzzle")
-const guessElement=document.querySelector("#guesses")
+const puzzleElement = document.querySelector("#puzzle")
+const guessElement = document.querySelector("#guesses")
 
 let game1
 
 // adding event listener to the window to take input from user
-window.addEventListener("keypress",(e) => {
-    const guess=e.key.toLowerCase()
+window.addEventListener("keypress", (e) => {
+    const guess = e.key.toLowerCase()
     game1.makeGuess(guess)
 
     render()
@@ -19,18 +19,24 @@ window.addEventListener("keypress",(e) => {
 //     console.log(`error: ${err}`)
 // })
 
-const render=()=>{
-    puzzleElement.textContent=game1.getPuzzle()
-    guessElement.textContent=game1.getStatusMessage()
+const render = () => {
+    puzzleElement.textContent = ''
+    game1.getPuzzle().split('').forEach((letter) => {
+        let element = document.createElement("span")
+        element.innerText = letter
+        puzzleElement.appendChild(element)
+    })
+
+    guessElement.textContent = game1.getStatusMessage()
 }
 
-const startGame = async()=>{
-    const puzzle= await getPuzzle(1)
-    game1=new Hangman(puzzle,5)
+const startGame = async () => {
+    const puzzle = await getPuzzle(1)
+    game1 = new Hangman(puzzle, 5)
     render()
 }
 
-document.querySelector("#reset").addEventListener("click",startGame())
+document.querySelector("#reset").addEventListener("click", startGame())
 
 startGame()
 // the challenge for callback abstraction
